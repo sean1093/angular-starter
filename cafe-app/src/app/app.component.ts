@@ -16,8 +16,10 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.postService.getData()
         .then(json => {
-            this.posts = json
+            this.posts = json;
         });
+
+        // this.postService.getData();
     }
 
 
