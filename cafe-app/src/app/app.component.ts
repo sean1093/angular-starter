@@ -1,24 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from './post.service';
 import {Post} from './post';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { MasterData } from './masterData';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+    bindingData: MasterData[];
     posts: Post[];
-    iframeSrc: SafeUrl;
-    constructor(private postService: PostService, private sanitizer: DomSanitizer) {
-
-      this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl("http://www.google.com/");
+    constructor(private postService: PostService) {
+      this.bindingData = [
+        {key: 'A1', value: 'valueA'},
+        {key: 'B1', value: 'valueB'}
+      ]
     }
 
-
-    changeSrc = () => {
-      this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl("https://tw.yahoo.com/");
-    }
 
     ngOnInit(): void {
         // this.postService.getData()
