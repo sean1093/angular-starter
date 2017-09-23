@@ -8,6 +8,8 @@ import {PostService} from './post.service';
 
 import {JsonpModule} from '@angular/http';
 
+import { DataServiceService } from './data-service/data-service.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import {JsonpModule} from '@angular/http';
     HttpModule,
     JsonpModule
   ],
-  providers: [PostService],
+  providers: [PostService, DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
