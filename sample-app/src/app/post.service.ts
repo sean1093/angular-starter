@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 export class PostService {
 
     // private getPostsURI = 'https://cafenomad.tw/api/v1.2/cafes';
-    private getPostsURI = 'https://api.github.com/users/tkforce';
+    private getPostsURI = 'https://api.github.com/users/sean1093';
 
     constructor(private http: Http, private _jsonp: Jsonp) { }
 
