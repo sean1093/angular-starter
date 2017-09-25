@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import {Post} from './post';
-import {Http, Response} from '@angular/http';
+import {Http} from '@angular/http';
 
 import {Jsonp} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostService {
-    
+
     // private getPostsURI = 'https://cafenomad.tw/api/v1.2/cafes';
     private getPostsURI = 'https://api.github.com/users/tkforce';
 
