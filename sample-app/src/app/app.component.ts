@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from './post.service';
-import {Post} from './post';
+// import {Post} from './post';
 import { MasterData } from './masterData';
 
 @Component({
@@ -10,7 +10,7 @@ import { MasterData } from './masterData';
 })
 export class AppComponent implements OnInit {
     bindingData: MasterData[];
-    posts: Post[];
+    // posts: Post[];
     constructor(private postService: PostService) {
       this.bindingData = [
         {key: 'A1', value: 'valueA'},
