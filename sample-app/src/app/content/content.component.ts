@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { MasterData } from './../masterData';
 
 @Component({
   selector: 'app-content',
@@ -7,8 +8,13 @@ import {Component, OnInit} from '@angular/core';
 
 export class ContentComponent implements OnInit {
 
-    constructor() {
-    }
+  bindingData: MasterData[];
+  constructor() {
+    this.bindingData = [
+      {key: 'A1', value: 'valueA'},
+      {key: 'B1', value: 'valueB'}
+    ]
+  }
 
 
     ngOnInit(): void {
