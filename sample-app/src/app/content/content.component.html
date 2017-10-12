@@ -1,2 +1,14 @@
 <h2>Hello Content</h2>
-<ui-select [data]="bindingData"></ui-select>
+<!-- <ui-select [data]="bindingData"></ui-select> -->
+<h3 class="first">Basic</h3>
+<p-dataTable [value]="cars" [loading]="true">
+    <p-column field="vin" header="Vin"></p-column>
+    <p-column field="year" header="Year"></p-column>
+    <p-column field="brand" header="Brand"></p-column>
+    <p-column field="color" header="Color"></p-column>
+</p-dataTable>
+
+<h3>Dynamic Columns</h3>
+<p-dataTable [value]="cars">
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+</p-dataTable>

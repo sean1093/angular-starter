@@ -1,4 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -15,6 +16,12 @@ import {PostService} from './post.service';
 import { DataServiceService } from './data-service/data-service.service';
 import { AppRoutingModule } from './app-routing.module';
 
+import {MultiSelectModule,
+  DataTableModule,
+  SharedModule,
+  SliderModule,
+  DropdownModule} from 'primeng/primeng';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +31,15 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MultiSelectModule,
+    DataTableModule,
+    SharedModule,
+    SliderModule,
+    DropdownModule
   ],
   providers: [PostService, DataServiceService],
   bootstrap: [AppComponent]
