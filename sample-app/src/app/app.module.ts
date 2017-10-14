@@ -12,22 +12,27 @@ import {HttpModule} from '@angular/http';
 import {PostService} from './post.service';
 
 
-
 import { DataServiceService } from './data-service/data-service.service';
+import { DataProcessService } from './data-process/data-process.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import {MultiSelectModule,
   DataTableModule,
   SharedModule,
   SliderModule,
-  DropdownModule} from 'primeng/primeng';
+  DropdownModule,
+  SelectButtonModule,
+  FieldsetModule } from 'primeng/primeng';
+import { DataTableComponent } from './data-table/data-table.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UiSelectComponent,
     ContentComponent,
-    PictureComponent
+    PictureComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +44,11 @@ import {MultiSelectModule,
     DataTableModule,
     SharedModule,
     SliderModule,
-    DropdownModule
+    DropdownModule,
+    SelectButtonModule,
+    FieldsetModule
   ],
-  providers: [PostService, DataServiceService],
+  providers: [PostService, DataServiceService, DataProcessService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
