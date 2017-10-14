@@ -10,6 +10,7 @@ export class DataTableComponent implements OnInit {
      
     @Input() tableData: Model[];
 
+
     constructor() {
         
 
@@ -18,6 +19,9 @@ export class DataTableComponent implements OnInit {
     ngOnInit() {
     }
 
+    saveData = () => {
+      console.log(this.tableData);
+    }
 
 
 }

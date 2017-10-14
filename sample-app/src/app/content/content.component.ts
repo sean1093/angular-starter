@@ -18,7 +18,7 @@ export class ContentComponent implements OnInit {
     selectedCity: string;
     arrangeList: any;
     val: any;
-
+    yearFilter: number;
     constructor(private dataProcessService: DataProcessService) {
 
         this.cities = [];
