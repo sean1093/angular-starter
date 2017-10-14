@@ -1,14 +1,17 @@
 <h2>Hello Content</h2>
 <!-- <ui-select [data]="bindingData"></ui-select> -->
 <h3 class="first">Basic</h3>
-<p-dataTable [value]="cars" [loading]="true">
-    <p-column field="vin" header="Vin"></p-column>
-    <p-column field="year" header="Year"></p-column>
-    <p-column field="brand" header="Brand"></p-column>
-    <p-column field="color" header="Color"></p-column>
+<p-dataTable [value]="tempData" [loading]="true">
+    <p-column field="name" header="Name"></p-column>
+    <p-column field="city" header="City"></p-column>
+    <p-column field="address" header="Address"></p-column>
+    <p-column field="wifi" header="Wifi"></p-column>
+    <p-column field="seat" header="Seat"></p-column>
+    <p-column field="quiet" header="Quiet"></p-column>
+    <p-column field="tasty" header="Tasty"></p-column>
 </p-dataTable>
 
-<h3>Dynamic Columns</h3>
-<p-dataTable [value]="cars">
-    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
-</p-dataTable>
+<!-- <h3>Dynamic Columns</h3>
+<p-dataTable [value]="tempData">
+    <p-column *ngFor="let col of tempData" [field]="col.name" header="Name"></p-column>
+</p-dataTable> -->
