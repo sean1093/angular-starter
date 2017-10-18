@@ -12,13 +12,15 @@ import {SelectItem} from 'primeng/primeng';
 })
 
 export class ContentComponent implements OnInit {
-    cafeData: Model[] = staticData; 
+    cafeData: Model[] = staticData;
+    cityData: Model[];
     tempData: Model[];
     cities: SelectItem[];
     selectedCity: string;
     arrangeList: any;
     val: any;
     yearFilter: number;
+    wifi: any = 0;
     constructor(private dataProcessService: DataProcessService) {
 
         this.cities = [];
@@ -46,8 +48,8 @@ export class ContentComponent implements OnInit {
     ngOnInit(): void {
 
 
-        
-        
+
+
         // console.log(staticData[0].name);
 
         // let key = staticData[0] != null ? Object.keys(staticData[0]) : null;
@@ -66,7 +68,7 @@ export class ContentComponent implements OnInit {
         this.tempData.push(this.cafeData[4]);
 
         // seperate cafe stores by region
-        this.arrangeList = this.dataProcessService.setDataByRegion(staticData);
+        this.arrangeList = this.dataProcessService.setDataByKey(staticData, 'city');
         console.log(this.arrangeList);
     }
 
@@ -74,12 +76,28 @@ export class ContentComponent implements OnInit {
         const selectedCityValue = e.option.value;
         console.log(selectedCityValue);
         this.tempData = this.arrangeList[selectedCityValue];
-        console.log(this.tempData );
+        this.cityData = this.tempData.slice();
+        console.log(this.tempData);
 
     }
 
     handleChange(e) {
-        //e.value is the new value
-        console.log(e.value);
+        // e.value is the new value
+        if (this.wifi !== e.value) {
+            this.wifi = e.value;
+            console.log(this.wifi);
+            const filterList = this.dataProcessService.setDataByKey(this.cityData, 'wifi');
+            console.log(filterList);
+            let targetList: any = [];
+            for (const key in filterList) {
+                if (this.wifi <= key) {
+                    targetList = targetList.concat(filterList[key]);
+                }
+            }
+            this.tempData = targetList;
+            console.log('targetList');
+            console.log(targetList);
+        }
+
     }
 }
