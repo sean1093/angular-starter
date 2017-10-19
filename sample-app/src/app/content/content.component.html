@@ -1,6 +1,4 @@
-<h2>Hello Content</h2>
-<!-- <ui-select [data]="bindingData"></ui-select> -->
-
+<nav class="nav-title">CAFE MAP</nav>
 <div class="ui-g">
 
 
@@ -9,12 +7,18 @@
             <p-selectButton [options]="cities" (onOptionClick)="selectChange($event)" [(ngModel)]="selectedCity"></p-selectButton>
         </p-fieldset>
         <p-fieldset legend="Rate" [toggleable]="true">
-            <span>Wifi: {{val}}</span>
-            <p-rating [cancel]="false"
-            (onRate)="handleChange($event)" ></p-rating>
+            <div class="ui-g">
+                <span>Wifi: </span>
+                <p-rating [cancel]="false" [(ngModel)]="valWifi"></p-rating>
+            </div>
+            <div class="ui-g">
+                <span>Seat: </span>
+                <p-rating [cancel]="false" [(ngModel)]="valSeat"></p-rating>
+            </div>
             <!-- <p-slider [(ngModel)]="val" [animate]="true"
             [min]="1" [max]="5" [step]="0.5"
             (onChange)="handleChange($event)"></p-slider> -->
+            <button pButton type="button" class="ui-button-success" (click)="handleChange()" label="Search"></button>
         </p-fieldset>
 
     </div>

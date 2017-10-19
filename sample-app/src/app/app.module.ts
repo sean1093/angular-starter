@@ -23,7 +23,8 @@ import {MultiSelectModule,
   DropdownModule,
   SelectButtonModule,
   FieldsetModule,
-  RatingModule } from 'primeng/primeng';
+  RatingModule,
+  ButtonModule } from 'primeng/primeng';
 import { DataTableComponent } from './data-table/data-table.component';
 
 
@@ -48,7 +49,8 @@ import { DataTableComponent } from './data-table/data-table.component';
     DropdownModule,
     SelectButtonModule,
     FieldsetModule,
-    RatingModule
+    RatingModule,
+    ButtonModule
   ],
   providers: [PostService, DataServiceService, DataProcessService],
   bootstrap: [AppComponent]

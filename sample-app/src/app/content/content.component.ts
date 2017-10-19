@@ -8,7 +8,8 @@ import {SelectItem} from 'primeng/primeng';
 
 @Component({
     selector: 'app-content',
-    templateUrl: './content.component.html'
+    templateUrl: './content.component.html',
+    styleUrls: ['./content.component.css']
 })
 
 export class ContentComponent implements OnInit {
@@ -18,29 +19,31 @@ export class ContentComponent implements OnInit {
     cities: SelectItem[];
     selectedCity: string;
     arrangeList: any;
-    val: any;
+    valWifi: any;
+    valSeat: any;
     yearFilter: number;
     wifi: any = 0;
     constructor(private dataProcessService: DataProcessService) {
 
         this.cities = [];
-        this.cities.push({label:'台北', value:'taipei'});
-        this.cities.push({label:'彰化', value:'changhua'});
-        this.cities.push({label:'嘉義', value:'chiayi'});
-        this.cities.push({label:'新竹', value:'hsinchu'});
-        this.cities.push({label:'花蓮', value:'hualien'});
-        this.cities.push({label:'高雄', value:'kaohsiung'});
-        this.cities.push({label:'基隆', value:'keelung'});
-        this.cities.push({label:'連江', value:'lienchiang'});
-        this.cities.push({label:'苗栗', value:'miaoli'});
-        this.cities.push({label:'南投', value:'nantou'});
-        this.cities.push({label:'澎湖', value:'penghu'});
-        this.cities.push({label:'台中', value:'taichung'});
-        this.cities.push({label:'台南', value:'tainan'});
-        this.cities.push({label:'台東', value:'taitung'});
-        this.cities.push({label:'桃園', value:'taoyuan'});
-        this.cities.push({label:'宜蘭', value:'yilan'});
-        this.cities.push({label:'雲林', value:'yunlin'});
+        this.cities.push({label: '基隆', value: 'keelung'});
+        this.cities.push({label: '台北', value: 'taipei'});
+        this.cities.push({label: '桃園', value: 'taoyuan'});
+        this.cities.push({label: '新竹', value: 'hsinchu'});
+        this.cities.push({label: '苗栗', value: 'miaoli'});
+        this.cities.push({label: '台中', value: 'taichung'});
+        this.cities.push({label: '南投', value: 'nantou'});
+        this.cities.push({label: '彰化', value: 'changhua'});
+        this.cities.push({label: '雲林', value: 'yunlin'});
+        this.cities.push({label: '嘉義', value: 'chiayi'});
+        this.cities.push({label: '台南', value: 'tainan'});
+        this.cities.push({label: '高雄', value: 'kaohsiung'});
+        this.cities.push({label: '屏東', value: 'pingtung'});
+        this.cities.push({label: '宜蘭', value: 'yilan'});
+        this.cities.push({label: '花蓮', value: 'hualien'});
+        this.cities.push({label: '台東', value: 'taitung'});
+        this.cities.push({label: '澎湖', value: 'penghu'});
+        this.cities.push({label: '連江', value: 'lienchiang'});
     }
 
 
@@ -58,14 +61,15 @@ export class ContentComponent implements OnInit {
         // }
 
         this.tempData = [];
+        // this.tempData =
         console.log("ngOnInit");
-        console.log(this.cafeData[0]);
-        console.log(this.cafeData[1]);
-        this.tempData.push(this.cafeData[0]);
-        this.tempData.push(this.cafeData[1]);
-        this.tempData.push(this.cafeData[2]);
-        this.tempData.push(this.cafeData[3]);
-        this.tempData.push(this.cafeData[4]);
+        // console.log(this.cafeData[0]);
+        // console.log(this.cafeData[1]);
+        // this.tempData.push(this.cafeData[0]);
+        // this.tempData.push(this.cafeData[1]);
+        // this.tempData.push(this.cafeData[2]);
+        // this.tempData.push(this.cafeData[3]);
+        // this.tempData.push(this.cafeData[4]);
 
         // seperate cafe stores by region
         this.arrangeList = this.dataProcessService.setDataByKey(staticData, 'city');
@@ -81,23 +85,40 @@ export class ContentComponent implements OnInit {
 
     }
 
-    handleChange(e) {
-        // e.value is the new value
-        if (this.wifi !== e.value) {
-            this.wifi = e.value;
-            console.log(this.wifi);
-            const filterList = this.dataProcessService.setDataByKey(this.cityData, 'wifi');
-            console.log(filterList);
+    handleChange() {
+
+        // if (this.wifi !== e.value) {
+            // this.wifi = e.value;
+            let filterList: any;
             let targetList: any = [];
-            for (const key in filterList) {
-                if (this.wifi <= key) {
-                    targetList = targetList.concat(filterList[key]);
+
+            console.log(this.valWifi);
+            if (this.valWifi) {
+                filterList = this.dataProcessService.setDataByKey(this.cityData, 'wifi');
+                console.log(filterList);
+                for (const key in filterList) {
+                    if (this.valWifi <= key) {
+                        targetList = targetList.concat(filterList[key]);
+                    }
                 }
+                this.tempData = targetList;
             }
-            this.tempData = targetList;
+
+            if (this.valSeat) {
+                filterList = this.dataProcessService.setDataByKey(targetList, 'seat');
+                console.log(filterList);
+                targetList = [];
+                for (const key in filterList) {
+                    if (this.valSeat <= key) {
+                        targetList = targetList.concat(filterList[key]);
+                    }
+                }
+                this.tempData = targetList;
+            }
+
             console.log('targetList');
             console.log(targetList);
-        }
+        // }
 
     }
 }
