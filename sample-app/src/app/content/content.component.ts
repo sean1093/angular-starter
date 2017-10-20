@@ -62,7 +62,7 @@ export class ContentComponent implements OnInit {
 
         this.tempData = [];
         // this.tempData =
-        console.log("ngOnInit");
+        console.log('ngOnInit');
         // console.log(this.cafeData[0]);
         // console.log(this.cafeData[1]);
         // this.tempData.push(this.cafeData[0]);
