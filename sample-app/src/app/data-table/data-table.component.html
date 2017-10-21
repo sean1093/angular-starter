@@ -40,7 +40,8 @@
 
 
 <p-dataTable [value]="tableData" [loading]="false"
-[rows]="5" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [editable]="true"  >
+             [rows]="5" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" 
+             [editable]="true" [responsive]="true" [stacked]="stacked">
 <p-headerColumnGroup>
        <p-row>
            <p-column header="Infomation" colspan="3"></p-column>
@@ -57,13 +58,13 @@
            <p-column header="Tasty"></p-column>
        </p-row>
 </p-headerColumnGroup>
-<p-column field="name"></p-column>
-<p-column field="mrt"></p-column>
-<p-column field="address"></p-column>
-<p-column field="wifi"></p-column>
-<p-column field="seat"></p-column>
-<p-column field="quiet"></p-column>
-<p-column field="tasty"></p-column>
-<p-column field="remark" [editable]="true"></p-column>
+<p-column field="name" header="Name"></p-column>
+<p-column field="mrt" header="MRT"></p-column>
+<p-column field="address" header="Address"></p-column>
+<p-column field="wifi" header="Wifi"></p-column>
+<p-column field="seat" header="Seat"></p-column>
+<p-column field="quiet" header="Quiet"></p-column>
+<p-column field="tasty" header="Tasty"></p-column>
+<p-column field="remark" header="Remark" [editable]="true"></p-column>
 </p-dataTable>
 <button (onClick)="saveData()">Save Data!</button>

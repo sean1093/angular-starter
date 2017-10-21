@@ -1,5 +1,10 @@
 .nav-title {
     background-color: #2196F3;
     text-align: center;
+    font-family: "Times New Roman", Georgia, Serif;
+    height: 2em;
+    vertical-align: middle;
+    line-height: 2em; 
     font-size: 2em;
+    color: white;
 }
