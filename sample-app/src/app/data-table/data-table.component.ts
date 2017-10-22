@@ -9,7 +9,9 @@ import { Model } from './../model/data-model';
 export class DataTableComponent implements OnInit {
      
     @Input() tableData: Model[];
-
+    displayDialog: boolean = false;
+    dialogTitle: string;
+    selectData: Model;
 
     constructor() {
         
@@ -17,10 +19,19 @@ export class DataTableComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.selectData = this.tableData[0];
     }
 
     saveData = () => {
-      console.log(this.tableData);
+        console.log(this.tableData);
+    }
+
+    openDetail = (event) => {
+        console.log('openDetail');
+        console.log(event.data);
+        this.selectData  = event.data;
+        this.displayDialog = true;
+        this.dialogTitle = this.selectData.name;
     }
 
 

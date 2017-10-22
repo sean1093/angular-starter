@@ -16,7 +16,7 @@ import { DataServiceService } from './data-service/data-service.service';
 import { DataProcessService } from './data-process/data-process.service';
 import { AppRoutingModule } from './app-routing.module';
 
-import {MultiSelectModule,
+import {CheckboxModule,
   DataTableModule,
   SharedModule,
   SliderModule,
@@ -24,8 +24,10 @@ import {MultiSelectModule,
   SelectButtonModule,
   FieldsetModule,
   RatingModule,
-  ButtonModule } from 'primeng/primeng';
+  ButtonModule,
+  DialogModule } from 'primeng/primeng';
 import { DataTableComponent } from './data-table/data-table.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { DataTableComponent } from './data-table/data-table.component';
     UiSelectComponent,
     ContentComponent,
     PictureComponent,
-    DataTableComponent
+    DataTableComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { DataTableComponent } from './data-table/data-table.component';
     BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,
-    MultiSelectModule,
+    CheckboxModule,
     DataTableModule,
     SharedModule,
     SliderModule,
@@ -50,7 +53,8 @@ import { DataTableComponent } from './data-table/data-table.component';
     SelectButtonModule,
     FieldsetModule,
     RatingModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
   ],
   providers: [PostService, DataServiceService, DataProcessService],
   bootstrap: [AppComponent]

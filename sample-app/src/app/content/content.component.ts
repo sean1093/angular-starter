@@ -17,13 +17,23 @@ export class ContentComponent implements OnInit {
     cityData: Model[];
     tempData: Model[];
     cities: SelectItem[];
+    selectedSocket: string[] = [];
     selectedCity: string;
     arrangeList: any;
     valWifi: any;
     valSeat: any;
-    yearFilter: number;
-    wifi: any = 0;
+    valQuiet: any;
+    // yearFilter: number;
+ 
     constructor(private dataProcessService: DataProcessService) {
+
+
+    }
+
+
+
+    ngOnInit(): void {
+
 
         this.cities = [];
         this.cities.push({label: '基隆', value: 'keelung'});
@@ -44,32 +54,10 @@ export class ContentComponent implements OnInit {
         this.cities.push({label: '台東', value: 'taitung'});
         this.cities.push({label: '澎湖', value: 'penghu'});
         this.cities.push({label: '連江', value: 'lienchiang'});
-    }
-
-
-
-    ngOnInit(): void {
-
-
-
-
-        // console.log(staticData[0].name);
-
-        // let key = staticData[0] != null ? Object.keys(staticData[0]) : null;
-        // for(let k in key) {
-        //   console.log(key[k]);
-        // }
 
         this.tempData = [];
-        // this.tempData =
+
         console.log('ngOnInit');
-        // console.log(this.cafeData[0]);
-        // console.log(this.cafeData[1]);
-        // this.tempData.push(this.cafeData[0]);
-        // this.tempData.push(this.cafeData[1]);
-        // this.tempData.push(this.cafeData[2]);
-        // this.tempData.push(this.cafeData[3]);
-        // this.tempData.push(this.cafeData[4]);
 
         // seperate cafe stores by region
         this.arrangeList = this.dataProcessService.setDataByKey(staticData, 'city');
@@ -87,38 +75,62 @@ export class ContentComponent implements OnInit {
 
     handleChange() {
 
-        // if (this.wifi !== e.value) {
-            // this.wifi = e.value;
-            let filterList: any;
-            let targetList: any = [];
+        let filterList: any;
+        let targetList: any = [];
 
-            console.log(this.valWifi);
-            if (this.valWifi) {
-                filterList = this.dataProcessService.setDataByKey(this.cityData, 'wifi');
-                console.log(filterList);
-                for (const key in filterList) {
-                    if (this.valWifi <= key) {
+        console.log(this.selectedSocket);
+
+        if (this.valWifi) {
+            filterList = this.dataProcessService.setDataByKey(this.cityData, 'wifi');
+            console.log(filterList);
+            for (const key in filterList) {
+                if (this.valWifi <= key) {
+                    targetList = targetList.concat(filterList[key]);
+                }
+            }
+            this.tempData = targetList;
+        }
+
+        if (this.valSeat) {
+            filterList = this.dataProcessService.setDataByKey(targetList, 'seat');
+            console.log(filterList);
+            targetList = [];
+            for (const key in filterList) {
+                if (this.valSeat <= key) {
+                    targetList = targetList.concat(filterList[key]);
+                }
+            }
+            this.tempData = targetList;
+        }
+
+        if (this.valQuiet) {
+            filterList = this.dataProcessService.setDataByKey(targetList, 'quiet');
+            console.log(filterList);
+            targetList = [];
+            for (const key in filterList) {
+                if (this.valQuiet <= key) {
+                    targetList = targetList.concat(filterList[key]);
+                }
+            }
+            this.tempData = targetList;
+        }
+        
+        if (this.selectedSocket.length > 0) {
+            filterList = this.dataProcessService.setDataByKey(targetList, 'socket');
+            console.log(filterList);
+            targetList = [];
+            for (const key in filterList) {
+                for (const s in this.selectedSocket) {
+                    if (this.selectedSocket[s] == key) {
                         targetList = targetList.concat(filterList[key]);
                     }
-                }
-                this.tempData = targetList;
+                }              
             }
-
-            if (this.valSeat) {
-                filterList = this.dataProcessService.setDataByKey(targetList, 'seat');
-                console.log(filterList);
-                targetList = [];
-                for (const key in filterList) {
-                    if (this.valSeat <= key) {
-                        targetList = targetList.concat(filterList[key]);
-                    }
-                }
-                this.tempData = targetList;
-            }
-
-            console.log('targetList');
-            console.log(targetList);
-        // }
+            this.tempData = targetList;
+        }
+        console.log('targetList');
+        console.log(targetList);
+       
 
     }
 }
