@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MasterData } from './../masterData';
 import { staticData } from './../tempData';
 
 import { Model } from './../model/data-model';
@@ -24,7 +23,7 @@ export class ContentComponent implements OnInit {
     valSeat: any;
     valQuiet: any;
     // yearFilter: number;
- 
+
     constructor(private dataProcessService: DataProcessService) {
 
 
@@ -114,7 +113,7 @@ export class ContentComponent implements OnInit {
             }
             this.tempData = targetList;
         }
-        
+
         if (this.selectedSocket.length > 0) {
             filterList = this.dataProcessService.setDataByKey(targetList, 'socket');
             console.log(filterList);
@@ -124,13 +123,13 @@ export class ContentComponent implements OnInit {
                     if (this.selectedSocket[s] == key) {
                         targetList = targetList.concat(filterList[key]);
                     }
-                }              
+                }
             }
             this.tempData = targetList;
         }
         console.log('targetList');
         console.log(targetList);
-       
+
 
     }
 }

@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {PostService} from './post.service';
-// import {Post} from './post';
-
 
 @Component({
   selector: 'app-root',
@@ -10,18 +7,6 @@ import {PostService} from './post.service';
 })
 export class AppComponent implements OnInit {
 
-    constructor(private postService: PostService) {
-    }
-
-
-    ngOnInit(): void {
-        // this.postService.getData()
-        // .then(json => {
-        //     this.posts = json;
-        // });
-
-        // this.postService.getData();
-    }
-
-
+    constructor() {}
+    ngOnInit(): void {}
 }
