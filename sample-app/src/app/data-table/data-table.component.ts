@@ -7,14 +7,15 @@ import { Model } from './../model/data-model';
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit {
-     
+
     @Input() tableData: Model[];
     displayDialog: boolean = false;
     dialogTitle: string;
     selectData: Model;
+    remark: any;
 
     constructor() {
-        
+
 
     }
 
@@ -24,6 +25,7 @@ export class DataTableComponent implements OnInit {
 
     saveData = () => {
         console.log(this.tableData);
+        this.displayDialog = false;
     }
 
     openDetail = (event) => {
@@ -32,6 +34,7 @@ export class DataTableComponent implements OnInit {
         this.selectData  = event.data;
         this.displayDialog = true;
         this.dialogTitle = this.selectData.name;
+        this.remark = this.selectData.remark;
     }
 
 

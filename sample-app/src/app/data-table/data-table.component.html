@@ -1,56 +1,69 @@
 
 <!-- <app-dialog [displayDialog]="displayDialog"></app-dialog> -->
 <p-dialog [header]="dialogTitle" [(visible)]="displayDialog" modal="modal" [responsive]="true">
-    
- 
     <div *ngIf="selectData">
-        <p>address: {{selectData.address}}</p>
-        <p>open_time: {{selectData.open_time}}</p>
-        <p>mrt: {{selectData.mrt}}</p>
-        <p>wifi: {{selectData.wifi}}</p>
-        <p>seat: {{selectData.seat}}</p>
-        <p>quiet: {{selectData.quiet}}</p>
-        <p>tasty: {{selectData.tasty}}</p>
-        <p>cheap: {{selectData.cheap}}</p>      
-        <p>music: {{selectData.music}}</p>
-        <p>socket: {{selectData.socket}}</p>
-        <p>limited_time: {{selectData.limited_time}}</p>
-        <p>standing_desk: {{selectData.standing_desk}}</p>
-        <p>remark: {{selectData.remark}}</p>
-        <p>url: <a [href]="selectData.url" target="_blank">{{selectData.name}} 官方網站</a></p>
+        <div id="information-block">
+            <p>店家地址: {{selectData.address}}</p>
+            <p>營業時間: {{selectData.open_time}}</p>
+            <p>捷運資訊: {{selectData.mrt}}</p>
+            <p>有無插座: {{selectData.socket}}</p>
+            <p>有無限時: {{selectData.limited_time}}</p>
+            <p>有無貓咪: </p>
+        </div>
+        <div class="ui-g" id="rate-block">
+            <div class="ui-g-2"><p>Wifi強度</p></div>
+            <div class="ui-g-2"><p>座位數量</p></div>
+            <div class="ui-g-2"><p>安靜程度</p></div>
+            <div class="ui-g-2"><p>美味程度</p></div>
+            <div class="ui-g-2"><p>便宜程度</p></div>
+            <div class="ui-g-2"><p>音樂</p></div>
+            <div class="ui-g-2">{{selectData.wifi}}</div>
+            <div class="ui-g-2">{{selectData.seat}}</div>
+            <div class="ui-g-2">{{selectData.quiet}}</div>
+            <div class="ui-g-2">{{selectData.tasty}}</div>
+            <div class="ui-g-2">{{selectData.cheap}}</div>
+            <div class="ui-g-2">{{selectData.music}}</div>
+        </div>
+
+        <p>評論:</p>
+        <textarea pInputTextarea [(ngModel)]="remark"></textarea>
+        <p>官方網站: <a [href]="selectData.url" target="_blank">{{selectData.name}} </a></p>
     </div>
     <p-footer>
-        <button type="button" pButton icon="fa-check" (click)="displayDialog=false" label="Confirm"></button>
-        <button type="button" pButton icon="fa-close" (click)="displayDialog=false" label="Cancel"></button>
+        <button type="button" pButton icon="fa-check"
+        (onClick)="saveData()" label="確認"
+        class="ui-button-success"></button>
+        <button type="button" pButton icon="fa-close"
+        (click)="displayDialog=false" label="取消"
+        class="ui-button-danger"></button>
     </p-footer>
 </p-dialog>
 <p-dataTable [value]="tableData" [loading]="false"
-             [rows]="5" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" 
+             [rows]="5" [paginator]="true" [pageLinks]="3"
+             [rowsPerPageOptions]="[5,10,20]"
              [editable]="true" [responsive]="true"
              (onRowDblclick) = "openDetail($event)">
-<p-headerColumnGroup>
+<!-- <p-headerColumnGroup>
        <p-row>
-           <p-column header="Infomation" colspan="3"></p-column>
+           <p-column header="Infomation" colspan="2"></p-column>
            <p-column header="Rate" colspan="4"></p-column>
            <p-column header="Remark" rowspan="2"></p-column>
        </p-row>
        <p-row>
            <p-column header="Name"></p-column>
-           <p-column header="MRT"></p-column>
            <p-column header="Address"></p-column>
            <p-column header="Wifi"></p-column>
            <p-column header="Seat"></p-column>
            <p-column header="Quiet"></p-column>
            <p-column header="Socket"></p-column>
        </p-row>
-</p-headerColumnGroup>
-<p-column field="name" header="Name"></p-column>
-<p-column field="mrt" header="MRT"></p-column>
-<p-column field="address" header="Address"></p-column>
-<p-column field="wifi" header="Wifi"></p-column>
-<p-column field="seat" header="Seat"></p-column>
-<p-column field="quiet" header="Quiet"></p-column>
-<p-column field="socket" header="Socket"></p-column>
-<p-column field="remark" header="Remark" [editable]="true"></p-column>
+</p-headerColumnGroup> -->
+<p-column field="name" header="店家名稱"></p-column>
+<p-column field="address" header="店家地址"></p-column>
+<p-column field="wifi" header="Wifi強度"></p-column>
+<p-column field="seat" header="座位數量"></p-column>
+<p-column field="quiet" header="安靜程度"></p-column>
+<p-column field="socket" header="有無插座"></p-column>
+<p-column field="remark" header="評論"></p-column>
 </p-dataTable>
 <!-- <button (onClick)="saveData()">Save Data!</button> -->

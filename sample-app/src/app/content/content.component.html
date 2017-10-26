@@ -1,10 +1,13 @@
-<nav class="nav-title">Cafe Map</nav>
-<div class="ui-g">
-    <div class="ui-g-12 ui-sm-12 ui-md-3">
-        <p-fieldset legend="City" [toggleable]="true">
+<nav class="nav-title">
+  <span class="main-text">Cafe Book</span>
+  <span class="sub-text">To find your favorite store</span>
+</nav>
+<div class="ui-g view-block">
+    <div class="ui-g-12 ui-sm-12 ui-md-3 view-block">
+        <p-panel header="City" [toggleable]="true">
             <p-selectButton [options]="cities" (onOptionClick)="selectChange($event)" [(ngModel)]="selectedCity"></p-selectButton>
-        </p-fieldset>
-        <p-fieldset legend="Rate" [toggleable]="true">
+        </p-panel>
+        <p-panel header="Rate" [toggleable]="true">
             <div class="ui-g">
                 <div class="ui-g-12 ui-sm-12 ui-md-4">
                     <span>Wifi: </span>
@@ -18,10 +21,10 @@
                     <span>Seat: </span>
                 </div>
                 <div class="ui-g-12 ui-sm-12 ui-md-8">
-                    <p-rating [cancel]="false" [(ngModel)]="valSeat"></p-rating> 
+                    <p-rating [cancel]="false" [(ngModel)]="valSeat"></p-rating>
                 </div>
             </div>
-            <div class="ui-g">                
+            <div class="ui-g">
                 <div class="ui-g-12 ui-sm-12 ui-md-4">
                     <span>Quiet: </span>
                 </div>
@@ -29,28 +32,22 @@
                     <p-rating [cancel]="false" [(ngModel)]="valQuiet"></p-rating>
                 </div>
             </div>
-            <div class="ui-g">            
+            <div class="ui-g">
                 <div class="ui-g-12 ui-sm-12 ui-md-4">
                     <span>Socket: </span>
                 </div>
                 <div class="ui-g-12 ui-sm-12 ui-md-8">
                     <p-checkbox name="group1" value="yes" label="Yes" [(ngModel)]="selectedSocket" inputId="y"></p-checkbox>
-                    <p-checkbox name="group1" value="no" label="No" [(ngModel)]="selectedSocket" inputId="n"></p-checkbox>           
-                    <p-checkbox name="group1" value="maybe" label="Maybe" [(ngModel)]="selectedSocket" inputId="m"></p-checkbox>               
+                    <p-checkbox name="group1" value="no" label="No" [(ngModel)]="selectedSocket" inputId="n"></p-checkbox>
+                    <p-checkbox name="group1" value="maybe" label="Maybe" [(ngModel)]="selectedSocket" inputId="m"></p-checkbox>
                 </div>
-            </div>           
+            </div>
             <button pButton type="button" class="ui-button-success" (click)="handleChange()" label="Search"></button>
-        </p-fieldset>
-
+        </p-panel>
     </div>
-    <div class="ui-g-12 ui-sm-12 ui-md-9">
+    <div class="ui-g-12 ui-sm-12 ui-md-9 view-block">
         <app-data-table [tableData]="tempData"></app-data-table>
     </div>
-
-
-
-
-
 </div>
 
 

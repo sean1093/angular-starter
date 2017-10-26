@@ -1,10 +1,20 @@
 .nav-title {
-    background-color: #2196F3;
+    /* background-color: #2196F3; */
+    color: rgb(190, 189, 189);
     text-align: center;
-    font-family: "Times New Roman", Georgia, Serif;
-    height: 2em;
+    border-bottom: 1px solid rgb(221, 220, 220);
+    /* font-family: "Times New Roman", Georgia, Serif; */
+    height: 3em;
     vertical-align: middle;
-    line-height: 2em; 
-    font-size: 2em;
-    color: white;
+    line-height: 3em;
+}
+.nav-title .main-text {
+  font-size: 2em;
+}
+.nav-title .sub-text {
+  font-size: 1em;
+}
+
+.view-block {
+  padding: 0px;
 }

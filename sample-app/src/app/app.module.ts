@@ -22,7 +22,9 @@ import {CheckboxModule,
   FieldsetModule,
   RatingModule,
   ButtonModule,
-  DialogModule } from 'primeng/primeng';
+  DialogModule,
+  InputTextareaModule,
+  PanelModule } from 'primeng/primeng';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DialogComponent } from './dialog/dialog.component';
 
@@ -50,7 +52,9 @@ import { DialogComponent } from './dialog/dialog.component';
     FieldsetModule,
     RatingModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    InputTextareaModule,
+    PanelModule
   ],
   providers: [DataServiceService, DataProcessService],
   bootstrap: [AppComponent]
