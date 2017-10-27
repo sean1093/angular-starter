@@ -23,7 +23,8 @@ import {CheckboxModule,
   RatingModule,
   ButtonModule,
   DialogModule,
-  InputTextareaModule,
+  InputTextModule,
+  InputSwitchModule,
   PanelModule } from 'primeng/primeng';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DialogComponent } from './dialog/dialog.component';
@@ -53,7 +54,8 @@ import { DialogComponent } from './dialog/dialog.component';
     RatingModule,
     ButtonModule,
     DialogModule,
-    InputTextareaModule,
+    InputTextModule,
+    InputSwitchModule,
     PanelModule
   ],
   providers: [DataServiceService, DataProcessService],

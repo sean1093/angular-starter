@@ -1,6 +1,7 @@
 <nav class="nav-title">
-  <span class="main-text">Cafe Book</span>
-  <span class="sub-text">To find your favorite store</span>
+    <span class="main-text">Cafe Book</span>
+    <span class="sub-text">To find your favorite store</span>
+    <i class="fa fa-coffee" aria-hidden="true"></i>
 </nav>
 <div class="ui-g view-block">
     <div class="ui-g-12 ui-sm-12 ui-md-3 view-block">
@@ -41,6 +42,10 @@
                     <p-checkbox name="group1" value="no" label="No" [(ngModel)]="selectedSocket" inputId="n"></p-checkbox>
                     <p-checkbox name="group1" value="maybe" label="Maybe" [(ngModel)]="selectedSocket" inputId="m"></p-checkbox>
                 </div>
+            </div>
+            <div class="ui-g">
+                <span>貓貓搜尋:</span>
+                <p-inputSwitch onLabel="Yes" offLabel="No" [(ngModel)]="selectCat"></p-inputSwitch>
             </div>
             <button pButton type="button" class="ui-button-success" (click)="handleChange()" label="Search"></button>
         </p-panel>

@@ -37,5 +37,9 @@ export class DataTableComponent implements OnInit {
         this.remark = this.selectData.remark;
     }
 
-
+    openMap = (selectData) => {
+        console.log('openMap: ' + selectData.name);
+        const url = 'https://maps.google.com/?q=' + selectData.name;
+        window.open(url);
+    }
 }

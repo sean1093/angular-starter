@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+// temp data, will replace by restful
 import { staticData } from './../tempData';
 
 import { Model } from './../model/data-model';
 import { DataProcessService } from './../data-process/data-process.service';
-import {SelectItem} from 'primeng/primeng';
+import { SelectItem } from 'primeng/primeng';
 
 @Component({
     selector: 'app-content',
@@ -12,28 +14,22 @@ import {SelectItem} from 'primeng/primeng';
 })
 
 export class ContentComponent implements OnInit {
+
     cafeData: Model[] = staticData;
     cityData: Model[];
     tempData: Model[];
     cities: SelectItem[];
     selectedSocket: string[] = [];
     selectedCity: string;
+    selectCat: string;
     arrangeList: any;
     valWifi: any;
     valSeat: any;
     valQuiet: any;
-    // yearFilter: number;
 
-    constructor(private dataProcessService: DataProcessService) {
-
-
-    }
-
-
+    constructor(private dataProcessService: DataProcessService) {}
 
     ngOnInit(): void {
-
-
         this.cities = [];
         this.cities.push({label: '基隆', value: 'keelung'});
         this.cities.push({label: '台北', value: 'taipei'});
@@ -78,9 +74,10 @@ export class ContentComponent implements OnInit {
         let targetList: any = [];
 
         console.log(this.selectedSocket);
-
+        let flag = true;
         if (this.valWifi) {
-            filterList = this.dataProcessService.setDataByKey(this.cityData, 'wifi');
+            filterList = this.dataProcessService.setDataByKey(
+              flag ? this.cityData : targetList, 'wifi');
             console.log(filterList);
             for (const key in filterList) {
                 if (this.valWifi <= key) {
@@ -88,10 +85,12 @@ export class ContentComponent implements OnInit {
                 }
             }
             this.tempData = targetList;
+            flag = false;
         }
 
         if (this.valSeat) {
-            filterList = this.dataProcessService.setDataByKey(targetList, 'seat');
+            filterList = this.dataProcessService.setDataByKey(
+              flag ? this.cityData : targetList, 'seat');
             console.log(filterList);
             targetList = [];
             for (const key in filterList) {
@@ -100,10 +99,12 @@ export class ContentComponent implements OnInit {
                 }
             }
             this.tempData = targetList;
+            flag = false;
         }
 
         if (this.valQuiet) {
-            filterList = this.dataProcessService.setDataByKey(targetList, 'quiet');
+            filterList = this.dataProcessService.setDataByKey(
+              flag ? this.cityData : targetList, 'quiet');
             console.log(filterList);
             targetList = [];
             for (const key in filterList) {
@@ -112,24 +113,27 @@ export class ContentComponent implements OnInit {
                 }
             }
             this.tempData = targetList;
+            flag = false;
         }
 
         if (this.selectedSocket.length > 0) {
-            filterList = this.dataProcessService.setDataByKey(targetList, 'socket');
+            filterList = this.dataProcessService.setDataByKey(
+              flag ? this.cityData : targetList, 'socket');
             console.log(filterList);
             targetList = [];
             for (const key in filterList) {
-                for (const s in this.selectedSocket) {
-                    if (this.selectedSocket[s] == key) {
-                        targetList = targetList.concat(filterList[key]);
+                if (filterList[key]) {
+                    for (const s in this.selectedSocket) {
+                        if (this.selectedSocket[s] === key) {
+                            targetList = targetList.concat(filterList[key]);
+                        }
                     }
                 }
             }
             this.tempData = targetList;
+            flag = false;
         }
         console.log('targetList');
         console.log(targetList);
-
-
     }
 }
