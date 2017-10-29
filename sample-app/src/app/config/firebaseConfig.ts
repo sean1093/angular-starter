@@ -1,5 +1,5 @@
 export const firebaseConfig: any = {
-    apiKey: "aaa",
+    apiKey: "",
     authDomain: "",
     databaseURL: "",
     projectId: "",
