@@ -11,7 +11,7 @@
         <p-panel header="Rate" [toggleable]="true">
             <div class="ui-g">
                 <div class="ui-g-12 ui-sm-12 ui-md-4">
-                    <span>Wifi: </span>
+                    <span>Wifi強度: </span>
                 </div>
                 <div class="ui-g-12 ui-sm-12 ui-md-8">
                     <p-rating [cancel]="false" [(ngModel)]="valWifi"></p-rating>
@@ -19,7 +19,7 @@
             </div>
             <div class="ui-g">
                 <div class="ui-g-12 ui-sm-12 ui-md-4">
-                    <span>Seat: </span>
+                    <span>座位數量: </span>
                 </div>
                 <div class="ui-g-12 ui-sm-12 ui-md-8">
                     <p-rating [cancel]="false" [(ngModel)]="valSeat"></p-rating>
@@ -27,7 +27,7 @@
             </div>
             <div class="ui-g">
                 <div class="ui-g-12 ui-sm-12 ui-md-4">
-                    <span>Quiet: </span>
+                    <span>安靜程度: </span>
                 </div>
                 <div class="ui-g-12 ui-sm-12 ui-md-8">
                     <p-rating [cancel]="false" [(ngModel)]="valQuiet"></p-rating>
@@ -35,17 +35,21 @@
             </div>
             <div class="ui-g">
                 <div class="ui-g-12 ui-sm-12 ui-md-4">
-                    <span>Socket: </span>
+                    <span>插座: </span>
                 </div>
                 <div class="ui-g-12 ui-sm-12 ui-md-8">
-                    <p-checkbox name="group1" value="yes" label="Yes" [(ngModel)]="selectedSocket" inputId="y"></p-checkbox>
-                    <p-checkbox name="group1" value="no" label="No" [(ngModel)]="selectedSocket" inputId="n"></p-checkbox>
-                    <p-checkbox name="group1" value="maybe" label="Maybe" [(ngModel)]="selectedSocket" inputId="m"></p-checkbox>
+                    <p-checkbox name="group1" value="yes" label="有" [(ngModel)]="selectedSocket" inputId="y"></p-checkbox>
+                    <p-checkbox name="group1" value="no" label="無" [(ngModel)]="selectedSocket" inputId="n"></p-checkbox>
+                    <p-checkbox name="group1" value="maybe" label="有可能" [(ngModel)]="selectedSocket" inputId="m"></p-checkbox>
                 </div>
             </div>
             <div class="ui-g">
-                <span>貓貓搜尋:</span>
-                <p-inputSwitch onLabel="Yes" offLabel="No" [(ngModel)]="selectCat"></p-inputSwitch>
+                <div class="ui-g-12 ui-sm-12 ui-md-4">
+                    <span>貓貓搜尋:</span>
+                </div>
+                <div class="ui-g-12 ui-sm-12 ui-md-8">
+                    <p-inputSwitch onLabel="Yes" offLabel="No" [(ngModel)]="selectCat"></p-inputSwitch>
+                </div>
             </div>
             <button pButton type="button" class="ui-button-success" (click)="handleChange()" label="Search"></button>
         </p-panel>

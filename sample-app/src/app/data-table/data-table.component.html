@@ -61,13 +61,15 @@
        </p-row>
 </p-headerColumnGroup> -->
 <p-column field="name" header="店家名稱"
-  [filter]="true" filterPlaceholder="Search" filterMatchMode="contains"
+  [filter]="true" filterPlaceholder="輸入關鍵字搜尋" filterMatchMode="contains"
   [style]="{'width':'20%'}"></p-column>
 <p-column field="address" header="店家地址"
+  [filter]="true" filterPlaceholder="輸入關鍵字搜尋" filterMatchMode="contains"
+  [style]="{'width':'15%'}"></p-column>
+<p-column field="mrt" header="捷運"
   [filter]="true" filterPlaceholder="Search" filterMatchMode="contains"
-  [style]="{'width':'30%'}"></p-column>
+  [style]="{'width':'15%'}"></p-column>
 <p-column field="wifi" header="Wifi強度"></p-column>
-<!-- <p-column field="wifi" styleClass="fa fa-wifi"></p-column> -->
 <p-column field="seat" header="座位數量"></p-column>
 <p-column field="quiet" header="安靜程度"></p-column>
 <p-column field="socket" header="有無插座"></p-column>
