@@ -7,6 +7,12 @@ import { Model } from './../model/data-model';
 import { DataProcessService } from './../data-process/data-process.service';
 import { SelectItem } from 'primeng/primeng';
 
+
+// import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+// import { AngularFireAuth } from 'angularfire2/auth';
+// import { Observable } from 'rxjs/Observable';
+// import * as firebase from 'firebase/app';
+
 @Component({
     selector: 'app-content',
     templateUrl: './content.component.html',
@@ -27,7 +33,24 @@ export class ContentComponent implements OnInit {
     valSeat: any;
     valQuiet: any;
 
-    constructor(private dataProcessService: DataProcessService) {}
+
+    // user: Observable<firebase.User>;
+    // items: FirebaseListObservable<any[]>;
+    // msgVal: string = '';
+
+    constructor(private dataProcessService: DataProcessService) {
+
+        // this.items = af.list('cafe-data/', {
+        //   query: {
+        //     limitToLast: 50
+        //   }
+        // });
+        // console.log(this.items);
+
+        // this.user = this.afAuth.authState;
+
+      }
+
 
     ngOnInit(): void {
         this.cities = [];
