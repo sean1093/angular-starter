@@ -7,6 +7,7 @@ A self-learning notes for Angular 4
 * [03 Concept]
 * [04 Interaction with Components]
 * [05 Http Module]
+* [06 Commom issue]
 
 [01 Environment and introduction]: <https://github.com/sean1093/angular-starter/blob/master/01.environment-and-introduction.md>
 
@@ -17,3 +18,5 @@ A self-learning notes for Angular 4
 [04 Interaction with Components]: <https://github.com/sean1093/angular-starter/blob/master/04.interaction-with-component.md>
 
 [05 Http Module]: <https://github.com/sean1093/angular-starter/blob/master/05.http-module.md>
+
+[06 Commom issue]: <https://github.com/sean1093/angular-starter/blob/master/06.commom-issue.md>
